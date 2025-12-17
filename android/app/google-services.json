@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "642075419686",
+    "project_id": "countainer-a60e6",
+    "storage_bucket": "countainer-a60e6.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:642075419686:android:5e48ce04aeec552569b2e7",
+        "android_client_info": {
+          "package_name": "com.example.graduation_project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "642075419686-tt1bjc3stkj62kclecst3hi8bb4gl25o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBXmpNVlu0i1TUlf9aSl4o0Ge2gR72dHnE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "642075419686-tt1bjc3stkj62kclecst3hi8bb4gl25o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
