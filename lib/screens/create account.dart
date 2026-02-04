@@ -48,7 +48,6 @@ class _CreateState extends State<Create> {
                   ),
                   child: const Icon(size: 70, Icons.public, color: Colors.blue),
                 ),
-                const SizedBox(height: 20),
 
                 const Text(
                   "Create Account",
@@ -172,7 +171,7 @@ class _CreateState extends State<Create> {
                   child: const Text(
                     "Create Account",
                     style: TextStyle(
-                      fontSize: 22,
+                      fontSize: 25,
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
                     ),
@@ -196,7 +195,7 @@ class _CreateState extends State<Create> {
                         "Already have an account?",
                         style: TextStyle(
                           color: Colors.white,
-                          fontSize: 19,
+                          fontSize: 20,
                           fontWeight: FontWeight.bold
                         ),
                       ),

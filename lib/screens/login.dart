@@ -133,7 +133,7 @@ class _LoginScreenState extends State<Login> {
                   "Welcome Back",
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 35,
+                    fontSize: 36,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -144,11 +144,11 @@ class _LoginScreenState extends State<Login> {
                   "Login to continue",
                   style: TextStyle(
                       color: Colors.orange,
-                      fontSize: 22,
+                      fontSize: 25,
                       fontWeight: FontWeight.bold),
                 ),
 
-                const SizedBox(height: 40),
+                const SizedBox(height: 30),
 
                 // -------- Email --------
                 Card(
@@ -203,7 +203,7 @@ class _LoginScreenState extends State<Login> {
                     ),
                   ),
                 ),
-
+                  SizedBox(height: 10),
                 // -------- Create Account --------
                 TextButton(
                   onPressed: () {
@@ -218,7 +218,7 @@ class _LoginScreenState extends State<Login> {
                         "Create Account?",
                         style: TextStyle(
                           color: Colors.white,
-                          fontSize: 23,
+                          fontSize: 25,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -270,24 +270,24 @@ class _LoginScreenState extends State<Login> {
                   child: const Text(
                     "Login",
                     style: TextStyle(
-                      fontSize: 28,
+                      fontSize: 30,
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),
 
-                const SizedBox(height: 20),
+                const SizedBox(height: 30),
 
                 const Text(
                   "Or login with",
                   style: TextStyle(
                       color: Colors.white,
-                      fontSize: 18,
+                      fontSize: 23,
                       fontWeight: FontWeight.bold),
                 ),
 
-                const SizedBox(height: 15),
+                const SizedBox(height: 30),
 
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -305,8 +305,8 @@ class _LoginScreenState extends State<Login> {
                       ),
                       icon: Image.asset(
                         'images/google.png',
-                        height: 24,
-                        width: 24,
+                        height: 30,
+                        width: 30,
                       ),
                       label: const Text("Google"),
                     ),
@@ -325,7 +325,7 @@ class _LoginScreenState extends State<Login> {
                             horizontal: 20, vertical: 12),
                       ),
                       icon: const Icon(Icons.facebook,
-                          size: 25, color: Colors.white),
+                          size: 30, color: Colors.white),
                       label: const Text(
                         "Facebook",
                         style: TextStyle(fontSize: 16),

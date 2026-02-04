@@ -24,7 +24,7 @@ class Start extends StatelessWidget {
           Align(
             alignment: Alignment.bottomCenter,
             child: Padding(
-              padding: const EdgeInsets.all(30.0),
+              padding: const EdgeInsets.all(42.0),
               child: ElevatedButton(
                 onPressed: () {
                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (_){
@@ -37,13 +37,13 @@ class Start extends StatelessWidget {
                   minimumSize: const Size(double.infinity,70),
                   backgroundColor: Colors.blue,
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
+                    borderRadius: BorderRadius.circular(10),
                   ),
                 ),
                 child: const Text(
                   "Get Started",
                   style: TextStyle(
-                    fontSize: 30,
+                    fontSize: 35,
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
                   ),

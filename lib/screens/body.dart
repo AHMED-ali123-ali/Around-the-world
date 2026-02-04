@@ -2,20 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../manger/app_cupit.dart';
 import '../manger/app_state.dart';
-import '../model/data.dart';
-
 class CountryPage extends StatelessWidget {
   const CountryPage({super.key});
-
   @override
   Widget build(BuildContext context) {
     final cubit = context.read<CountryCubit>();
     final TextEditingController controller = TextEditingController();
-
     return Scaffold(
       backgroundColor: const Color(0xFFE0F7FA),
       appBar: AppBar(
-        title: const Text("Country Finder",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 28),),
+        title: const Text("Country Finder",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 28,color: Colors.white),),
         backgroundColor: Colors.blue,
         centerTitle: true,
         elevation: 0,
@@ -29,18 +25,18 @@ class CountryPage extends StatelessWidget {
               children: [
                SizedBox(height: 50,),
                 Container(
-                  width: 330,
-                  height: 200,
+                  width: 350,
+                  height: 220,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(13),
 
                     image: DecorationImage(
                       image: AssetImage("images/map.jpg"),
-                      fit: BoxFit.cover,
+                      fit: BoxFit.cover
                     ),
                   ),
                 ),
-                const SizedBox(height: 50),
+                const SizedBox(height: 70),
 
                 // TextField
                 Padding(
@@ -49,7 +45,7 @@ class CountryPage extends StatelessWidget {
                     controller: controller,
                     decoration: InputDecoration(
                       labelText: "Enter country name",
-                      labelStyle: TextStyle(fontSize: 20,color: Colors.black),
+                      labelStyle: TextStyle(fontSize: 22,color: Colors.black),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
@@ -59,12 +55,12 @@ class CountryPage extends StatelessWidget {
                     ),
                   ),
                 ),
-                const SizedBox(height: 40),
+                const SizedBox(height: 70),
 
                 // Button
                 SizedBox(
-                  width: 200,
-                  height: 50,
+                  width: 250,
+                  height: 60,
                   child: ElevatedButton(
                     onPressed: () {
                       cubit.getCountries(controller.text);
@@ -113,7 +109,7 @@ class CountryPage extends StatelessWidget {
                                 child: Text(
                                   country.name,
                                   style: const TextStyle(
-                                      fontWeight: FontWeight.bold, fontSize: 28,color: Colors.red),
+                                      fontWeight: FontWeight.bold, fontSize: 30,color: Colors.red),
                                 ),
                               ),
                               subtitle: Center(
@@ -143,7 +139,7 @@ class CountryPage extends StatelessWidget {
                   return const Center(
                       child: Text("Search for a country",
                           style: TextStyle(
-                              fontSize: 35, fontWeight: FontWeight.bold,color: Colors.red)));
+                              fontSize: 38, fontWeight: FontWeight.bold,color: Colors.red)));
                 },
               ),
             ),

@@ -14,7 +14,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
 
-    Timer(const Duration(seconds: 7), () {
+    Timer(const Duration(seconds:5), () {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (_) => const Login()),
@@ -46,7 +46,7 @@ class _SplashScreenState extends State<SplashScreen> {
             children: [
 
               SizedBox(
-                height:300,
+                height:280,
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(15),
                   child: Image.asset(
@@ -75,7 +75,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 "Explore countries around the world",
                 style: TextStyle(
                   color: Colors.white,
-                  fontSize: 22,
+                  fontSize: 25,
                   fontWeight: FontWeight.w400,
                 ),
               ),
