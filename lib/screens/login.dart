@@ -4,7 +4,6 @@ import 'package:graduation_project/screens/start.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
-
 import 'create account.dart';
 
 class Login extends StatefulWidget {
@@ -22,12 +21,38 @@ class _LoginScreenState extends State<Login> {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final GoogleSignIn _googleSignIn = GoogleSignIn();
 
+  // ================= SnackBar Design =================
   void showSnack(String message, Color color) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        content: Text(message),
+        content: Row(
+          children: [
+            Icon(
+              color == Colors.green ? Icons.check_circle : Icons.error,
+              color: Colors.white,
+            ),
+            const SizedBox(width: 10),
+            Expanded(
+              child: Center(
+                child: Text(
+                  message,
+                  style: const TextStyle(
+                    fontSize:20,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
         backgroundColor: color,
+        behavior: SnackBarBehavior.floating,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(15),
+        ),
+        margin: const EdgeInsets.all(15),
         duration: const Duration(seconds: 2),
+        elevation: 10,
       ),
     );
   }
@@ -126,9 +151,7 @@ class _LoginScreenState extends State<Login> {
                   ),
                   child: const Icon(Icons.public, size: 70, color: Colors.blue),
                 ),
-
                 const SizedBox(height: 30),
-
                 const Text(
                   "Welcome Back",
                   style: TextStyle(
@@ -137,26 +160,24 @@ class _LoginScreenState extends State<Login> {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-
                 const SizedBox(height: 20),
-
                 const Text(
                   "Login to continue",
                   style: TextStyle(
-                      color: Colors.orange,
-                      fontSize: 25,
+                      color: Colors.white,
+                      fontSize: 27,
                       fontWeight: FontWeight.bold),
                 ),
-
                 const SizedBox(height: 30),
 
-                // -------- Email --------
+                // Email
                 Card(
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(15),
                   ),
                   elevation: 5,
-                  child: TextField(
+                  child: TextFormField(
+                    style:TextStyle(fontWeight: FontWeight.bold,fontSize: 22),
                     controller: emailController,
                     decoration: const InputDecoration(
                       prefixIcon: Icon(Icons.email),
@@ -169,15 +190,16 @@ class _LoginScreenState extends State<Login> {
                   ),
                 ),
 
-                const SizedBox(height: 20),
+                const SizedBox(height: 30),
 
-                // -------- Password --------
+                // Password
                 Card(
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(15),
                   ),
                   elevation: 5,
-                  child: TextField(
+                  child: TextFormField(
+                    style:TextStyle(fontWeight: FontWeight.bold,fontSize: 22) ,
                     controller: passwordController,
                     obscureText: !isPasswordVisible,
                     decoration: InputDecoration(
@@ -203,13 +225,15 @@ class _LoginScreenState extends State<Login> {
                     ),
                   ),
                 ),
-                  SizedBox(height: 10),
-                // -------- Create Account --------
+
+                const SizedBox(height: 10),
+
                 TextButton(
                   onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (_) {
-                      return const Create();
-                    }));
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (_) {
+                          return const Create();
+                        }));
                   },
                   child: const Column(
                     crossAxisAlignment: CrossAxisAlignment.end,
@@ -228,17 +252,15 @@ class _LoginScreenState extends State<Login> {
 
                 const SizedBox(height: 10),
 
-                // -------- Login Button + Validation --------
                 ElevatedButton(
                   onPressed: () {
                     String email = emailController.text.trim();
                     String password = passwordController.text.trim();
 
-                    // VALIDATION
                     if (email.isEmpty ||
                         !email.contains("@") ||
                         !email.contains(".")) {
-                      showSnack("Please enter a valid email", Colors.red);
+                      showSnack("Please enter a valid email",Colors.red);
                       return;
                     }
 
@@ -248,9 +270,7 @@ class _LoginScreenState extends State<Login> {
                       return;
                     }
 
-                    // SUCCESS
                     showSnack("Login Successful!", Colors.green);
-
                     Future.delayed(const Duration(seconds: 1), () {
                       Navigator.pushReplacement(
                         context,
@@ -310,9 +330,7 @@ class _LoginScreenState extends State<Login> {
                       ),
                       label: const Text("Google"),
                     ),
-
                     const SizedBox(width: 20),
-
                     ElevatedButton.icon(
                       onPressed: _handleFacebookSignIn,
                       style: ElevatedButton.styleFrom(

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../manger/app_cupit.dart';
 import '../manger/app_state.dart';
+import '../widegets/CountryInfo.dart';
 class CountryPage extends StatelessWidget {
   const CountryPage({super.key});
   @override
@@ -29,7 +30,6 @@ class CountryPage extends StatelessWidget {
                   height: 220,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(13),
-
                     image: DecorationImage(
                       image: AssetImage("images/map.jpg"),
                       fit: BoxFit.cover
@@ -37,15 +37,15 @@ class CountryPage extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 70),
-
                 // TextField
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 32.0),
                   child: TextField(
+                    style: TextStyle(fontSize:25,fontWeight: FontWeight.bold),
                     controller: controller,
                     decoration: InputDecoration(
                       labelText: "Enter country name",
-                      labelStyle: TextStyle(fontSize: 22,color: Colors.black),
+                      labelStyle: TextStyle(fontSize:25,color: Colors.black),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
@@ -56,7 +56,6 @@ class CountryPage extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 70),
-
                 // Button
                 SizedBox(
                   width: 250,
@@ -117,10 +116,12 @@ class CountryPage extends StatelessWidget {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     const SizedBox(height: 4),
-                                    Text("Capital: ${country.capital}",style: TextStyle(fontSize: 20,color: Colors.black,fontWeight: FontWeight.bold),),
-                                    Text("Population: ${country.population}",style: TextStyle(fontSize: 20,color: Colors.black87,fontWeight: FontWeight.bold)),
-                                    Text("Languages: ${country.languages.join(", ")}",style: TextStyle(fontSize: 20,color: Colors.black,fontWeight: FontWeight.bold)),
-                                    Text("Currencies: ${country.currencies.join(", ")}",style: TextStyle(fontSize: 20,color: Colors.black,fontWeight: FontWeight.bold)),
+                                    CountryInfoWidget(
+                                      capital: country.capital,
+                                      population: country.population,
+                                      languages: country.languages,
+                                      currencies: country.currencies,
+                                    ),
                                   ],
                                 ),
                               ),
@@ -138,9 +139,7 @@ class CountryPage extends StatelessWidget {
                   }
                   return const Center(
                       child: Text("Search for a country",
-                          style: TextStyle(
-                              fontSize: 38, fontWeight: FontWeight.bold,color: Colors.red)));
-                },
+                          style: TextStyle(fontSize: 38, fontWeight: FontWeight.bold,color: Colors.red)));},
               ),
             ),
           ],
